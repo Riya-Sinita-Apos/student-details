@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <h1>Fill Form</h1>
+        <input type="text" name="name" id="name" placeholder="Enter your name"><br><br>
+        <input type="number" name="id" id="id" placeholder="Enter your Id"><br><br>
+        <input type="email" name="email" id="email" placeholder="Enter your email"><br><br>
+        <label for="address">Enter your address</label>
+        <textarea name="address" id="address" cols="10" rows="5"></textarea><br><br>
+        <label for="phone">Enter your phone</label>
+        <input type="number" name="phone" id="phone"><br><br>
+        <label for="dob">Enter your DOB</label>
+        <input type="date" name="dob" id="dob"><br><br>
+        <label for="gender" id="riya">gender:
+        <input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="Other"><label for="other">Other</label><br><br>
+    </label>
+        <label for="lang"> Select your Language:
+        <input type="checkbox" name="lang" id="eng" value="Engilsh"><label for="eng">Engilsh</label>
+        <input type="checkbox" name="lang" id="kan" value="Kannada"><label for="kan">Kananda</label>
+        <input type="checkbox" name="lang" id="hin" value="Hindi"><label for="hin">Hindi</label><br><br>
+    </label>
+        <label for="counter" id="apos">Select your country
+        <select name="country" id="country">
+            <option value="India">India</option>
+            <option value="China">china</option>
+            <option value="America">America</option>
+            <option value="Japan">Janpan</option>
+        </select><br><br>
+    </label>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+    <h3>DETAILS</h3>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+    <p id="output4"></p>
+    <p id="output5"></p>
+    <p id="output6"></p>
+    <p id="output7"></p>
+    <p id="output8"></p>
+    <p id="output9"></p>
+</div>
+<script>
+    function submitForm() {
+      let name = document.getElementById("name").value;
+      document.getElementById("output1").textContent ="Name:" +name;
+      let id = document.getElementById("id").value;
+      document.getElementById("output2").textContent ="Id:"+id;
+      let email = document.getElementById("email").value;
+      document.getElementById("output3").textContent ="Email:"+email;
+      let address = document.getElementById("address").value;
+      document.getElementById("output4").textContent ="Address:"+address;
+      let phone = document.getElementById("phone").value;
+      document.getElementById("output5").textContent ="Phone:"+phone;
+      let dob = document.getElementById("dob").value;
+      document.getElementById("output6").textContent ="DOB:"+dob;
+for (var i = 0; i < document.getElementsByName("gender").length; i++) {
+  if (document.getElementsByName("gender")[i].checked) {
+    selectedGender = document.getElementsByName("gender")[i].value;
+    break;
+  }
+}
+      var resultDiv = document.getElementById("output7");
+      resultDiv.textContent = "Gender: " + selectedGender;
+      var checkedValues = [];
+
+// Get all checkboxes with the name 'checkboxName'
+var checkboxes = document.querySelectorAll('input[name="lang"]:checked');
+
+// Iterate through checked checkboxes and push values to the array
+checkboxes.forEach(function (checkbox) {
+  checkedValues.push(checkbox.value);
+});
+
+// Display the checked values on the webpage
+document.getElementById('output8').innerHTML = "Language: " + checkedValues.join(', ');
+var dropdownValue = document.getElementById("country").value;
+       document.getElementById("output9").innerText = "Country: " + dropdownValue;
+    }
+
+  
+  </script>
+  </body>
+
+  </html>
